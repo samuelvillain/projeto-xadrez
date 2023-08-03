@@ -1,6 +1,6 @@
 package tabuleiro;
 
-public class Peca extends Tabuleiro{
+public class Peca {
     protected Posicao posicao;
     private Tabuleiro tabuleiro;
 
