@@ -1,0 +1,277 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1691098418317)
++++ b/.idea/misc.xml	(date 1691098418317)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="20" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1691098417813)
++++ b/.idea/vcs.xml	(date 1691098417813)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1691098417857)
++++ b/.gitignore	(date 1691098417857)
+@@ -0,0 +1,30 @@
++### IntelliJ IDEA ###
++out/
++!**/src/main/**/out/
++!**/src/test/**/out/
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++bin/
++!**/src/main/**/bin/
++!**/src/test/**/bin/
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
++/.idea/uiDesigner.xml
+Index: Xadrez.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Xadrez.iml b/Xadrez.iml
+new file mode 100644
+--- /dev/null	(date 1691098417901)
++++ b/Xadrez.iml	(date 1691098417901)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1691098417949)
++++ b/.idea/modules.xml	(date 1691098417949)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Xadrez.iml" filepath="$PROJECT_DIR$/Xadrez.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1691098418021)
++++ b/.idea/workspace.xml	(date 1691098418021)
+@@ -0,0 +1,150 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="71223eff-7246-40f4-b8d1-dc6b00fab905" name="Changes" comment="tabuleiro e peças">
++      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Xadrez.iml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="package-info" />
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
++      </map>
++    </option>
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="ROOT_SYNC" value="DONT_SYNC" />
++  </component>
++  <component name="ProjectId" id="2TUSh7v8dfzAFLicFvYHT4vg8O5" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "onboarding.tips.debug.path": "/home/samuel/java/udemy/Xadrez/src/Main.java"
++  }
++}]]></component>
++  <component name="RunManager">
++    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="application.Program" />
++      <module name="Xadrez" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Program" />
++        <item itemvalue="Application.Program" />
++        <item itemvalue="Application.Program" />
++        <item itemvalue="Application.Program" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="71223eff-7246-40f4-b8d1-dc6b00fab905" name="Changes" comment="" />
++      <created>1691096285738</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1691096285738</updated>
++    </task>
++    <task id="LOCAL-00001" summary="primeiro commit">
++      <created>1691096528614</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1691096528615</updated>
++    </task>
++    <task id="LOCAL-00002" summary="tabuleiro e peças">
++      <created>1691097843950</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1691097843950</updated>
++    </task>
++    <task id="LOCAL-00003" summary="tabuleiro e peças">
++      <created>1691098030433</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1691098030433</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
++    <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="RECENT_FILTERS">
++      <map>
++        <entry key="Branch">
++          <value>
++            <list>
++              <RecentGroup>
++                <option name="FILTER_VALUES">
++                  <option value="HEAD" />
++                </option>
++              </RecentGroup>
++            </list>
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State>
++              <option name="CUSTOM_BOOLEAN_PROPERTIES">
++                <map>
++                  <entry key="Show.Git.Branches" value="true" />
++                </map>
++              </option>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="master" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="primeiro commit" />
++    <MESSAGE value="tabuleiro e peças" />
++    <option name="LAST_COMMIT_MESSAGE" value="tabuleiro e peças" />
++  </component>
++</project>
+\ No newline at end of file
