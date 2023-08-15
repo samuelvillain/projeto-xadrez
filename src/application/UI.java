@@ -1,12 +1,15 @@
 package application;
 
-import tabuleiro.Peca;
 import xadrez.Cor;
-import xadrez.PecaXadrez;
+import xadrez.JogoXadrez;
+import xadrez.PecaXadrezz;
 import xadrez.PosicaoXadrez;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class UI {
     // https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
@@ -30,7 +33,13 @@ public class UI {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-    public static PosicaoXadrez escrvaPosicoXadrez(Scanner sc){
+    // https://stackoverflow.com/questions/2979383/java-clear-the-console
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static PosicaoXadrez escrevaPosicoXadrez(Scanner sc){
         try {
             String s = sc.nextLine();
             char coluna = s.charAt(0);
@@ -41,12 +50,25 @@ public class UI {
         }
     }
 
-    public static void imprimaTabuleiro(PecaXadrez[][] pecas) {
+    public static void imprimirJogo(JogoXadrez jogoXadrez, List<PecaXadrezz> capturada){
+        imprimaTabuleiro(jogoXadrez.getPecas());
+        System.out.println();
+        imprimirCapturaPecas(capturada);
+        System.out.println();
+        System.out.println("Vez: " + jogoXadrez.getVez());
+        System.out.println("Esperando o jogador: " + jogoXadrez.getJogadorAtual());
+        if (jogoXadrez.getChecar()){
+            System.out.println("VOCÊ ESTÁ EM XEQUE!");
+        }
+
+    }
+
+    public static void imprimaTabuleiro(PecaXadrezz[][] pecas) {
 
         for (int i = 0; i < pecas.length; i++) {
             System.out.print((8 - i) + " ");
             for (int j = 0; j < pecas.length; j++) {
-                imprimirPeca(pecas[i][j]);
+                imprimirPeca(pecas[i][j], false);
             }
             System.out.println();
         }
@@ -54,18 +76,51 @@ public class UI {
         System.out.println("  a b c d e f g h");
     }
 
-    private static void imprimirPeca(PecaXadrez pecaXadrez) {
-        if (pecaXadrez == null) {
-            System.out.print("-");
+    public static void imprimaTabuleiro(PecaXadrezz[][] pecas, boolean[][] possiveisMovimentos) {
+
+        for (int i = 0; i < pecas.length; i++) {
+            System.out.print((8 - i) + " ");
+            for (int j = 0; j < pecas.length; j++) {
+                imprimirPeca(pecas[i][j], possiveisMovimentos[i][j]);
+            }
+            System.out.println();
+        }
+
+        System.out.println("  a b c d e f g h");
+    }
+
+    private static void imprimirPeca(PecaXadrezz PeçaXadrez, boolean background) {
+        if (background){
+            System.out.print(ANSI_BLUE_BACKGROUND);
+        }
+        if (PeçaXadrez == null) {
+            System.out.print("-" + ANSI_RESET);
         }
         else {
-            if (pecaXadrez.getCor() == Cor.WHITE) {
-                System.out.print(ANSI_WHITE + pecaXadrez + ANSI_RESET);
+            if (PeçaXadrez.getCor() == Cor.WHITE) {
+                System.out.print(ANSI_WHITE + PeçaXadrez + ANSI_RESET);
             }
             else {
-                System.out.print(ANSI_YELLOW + pecaXadrez + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + PeçaXadrez + ANSI_RESET);
             }
         }
         System.out.print(" ");
+    }
+
+    private static void imprimirCapturaPecas (java.util.List<PecaXadrezz> capturada){
+        java.util.List<PecaXadrezz> white = capturada.stream().filter(x -> x.getCor() == Cor.WHITE).collect(Collectors.toList());
+        java.util.List<PecaXadrezz> black = capturada.stream().filter(x -> x.getCor() == Cor.BLACK).collect(Collectors.toList());
+        System.out.println("Peça capturada:");
+        System.out.print("Brancas: ");
+        System.out.print(ANSI_WHITE);
+        System.out.println(Arrays.toString(white.toArray()));
+        System.out.print(ANSI_RESET);
+        System.out.print("Pretas: ");
+        System.out.print(ANSI_YELLOW);
+        System.out.println(Arrays.toString(black.toArray()));
+        System.out.print(ANSI_RESET);
+
+
+
     }
 }
