@@ -73,12 +73,17 @@ public class JogoXadrez {
 
         checar = (testeParaChecar(oponente(jogadorAtual))) ? true : false;
 
-        proximaVez();
+        if (testeXequeMate(oponente(jogadorAtual))){
+            xequeMate = true;
+        } else {
+            proximaVez();
+        }
         return (PecaXadrezz) capturaPeca;
     }
 
     private Peca fazerMover(Posicao origem, Posicao destino){
-        Peca p = tabuleiro.removePeca(origem);
+        PecaXadrezz p = (PecaXadrezz) tabuleiro.removePeca(origem);
+        p.aumentarContagemMovimentos();
         Peca capturaPeca = tabuleiro.removePeca(destino);
         tabuleiro.recebendoPeca(p, destino);
 
@@ -90,7 +95,8 @@ public class JogoXadrez {
     }
 
     private void desfazerMovimento(Posicao origem, Posicao destino, Peca pecaCapturada){
-        Peca p = tabuleiro.removePeca(destino);
+        PecaXadrezz p = (PecaXadrezz)tabuleiro.removePeca(destino);
+        p.diminuirContagemMovimentos();
         tabuleiro.recebendoPeca(p, origem);
 
         if (pecaCapturada != null){
@@ -147,6 +153,32 @@ public class JogoXadrez {
             }
         }
         return false;
+    }
+
+    private boolean testeXequeMate (Cor cor){
+        if (!testeParaChecar(cor)){
+            return false;
+        }
+        List<Peca> list = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrezz)x).getCor() == cor ).collect(Collectors.toList());
+        for (Peca p: list){
+            boolean[][] mat = p.possiveisMovimentos();
+            for (int i = 0; i < tabuleiro.getLinhas(); i++){
+                for (int j = 0; j < tabuleiro.getColunas(); j++){
+                    if (mat[i][j]){
+                        Posicao origem = ((PecaXadrezz)p).getPosicaoXadrez().toposicao();
+                        Posicao destino = new Posicao(i, j);
+                        Peca pecaCapturada = fazerMover(origem, destino);
+                        boolean testeXeque = testeParaChecar(cor);
+                        desfazerMovimento(origem, destino, pecaCapturada);
+                        if (!testeXeque ){
+                            return false;
+                        }
+                    }
+
+                }
+            }
+        }
+        return true;
     }
 
 
