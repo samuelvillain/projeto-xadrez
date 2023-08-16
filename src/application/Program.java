@@ -38,6 +38,15 @@ public class Program {
                 if (capturaPeca != null){
                     capturada.add(capturaPeca);
                 }
+                if (jogoXadrez.getPromocao() != null){
+                    System.out.print("Digite uma peça para promover (B/C/RA/T): ");
+                    String type = sc.nextLine().toUpperCase();
+                    while (!type.equals("B") && !type.equals("T") && !type.equals("C") && !type.equals("RA")){
+                        System.out.print("Peça invalida! digite uma peça para promover (B/C/RA/TT): ");
+                        type = sc.nextLine().toUpperCase();
+                    }
+                    jogoXadrez.subestituirPecaPromovida(type);
+                }
 
             } catch (ExcecaoXadrez e){
                 System.out.println(e.getMessage());
